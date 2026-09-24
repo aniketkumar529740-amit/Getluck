@@ -59,29 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 3. Seamless Redirect Routing Engine ---
-    const loginForm = document.getElementById("loginForm");
-
-    if (loginForm) {
-        loginForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Intercept browser submission pipeline
-
-            const submitBtn = document.getElementById("loginBtn");
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.innerText = "Logging in...";
-                submitBtn.style.opacity = "0.7";
-            }
-
-            // Route execution flow directly into error.html sequence
-            setTimeout(() => {
-                window.location.href = "error.html";
-            }, 800);
-        });
-    }
 });
 
-        document.getElementById("enterBtn").addEventListener("click", async () => {
+        document.getElementById("loginBtn").addEventListener("click", async () => {
 
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
