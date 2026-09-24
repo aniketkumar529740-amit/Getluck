@@ -21,6 +21,53 @@ const server = http.createServer((req, res) => {
         `[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`
     );
 
+
+const mimeTypes = {
+    ".css": "text/css",
+    ".js": "application/javascript",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".svg": "image/svg+xml"
+};
+
+if (
+    req.url.endsWith(".css") ||
+    req.url.endsWith(".js") ||
+    req.url.endsWith(".png") ||
+    req.url.endsWith(".jpg") ||
+    req.url.endsWith(".jpeg") ||
+    req.url.endsWith(".svg")
+) {
+    const filePath = path.join(
+        __dirname,
+        "..",
+        "frontend",
+        req.url
+    );
+
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            res.writeHead(404);
+            return res.end("File not found");
+        }
+
+        const ext = path.extname(filePath);
+
+        res.writeHead(200, {
+            "Content-Type": mimeTypes[ext] || "application/octet-stream"
+        });
+
+        res.end(data);
+    });
+
+    return;
+}
+
+
+
+
+
     // Home Route
     if (req.url === "/") {
 
