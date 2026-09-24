@@ -80,3 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+        document.getElementById("enterBtn").addEventListener("click", async () => {
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const response = await fetch("/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            });
+
+            const data = await response.json();
+
+            alert(data.message);
+        });
