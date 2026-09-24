@@ -1,13 +1,18 @@
 {
-  "name": "backend",
+  "name": "getluck-backend",
   "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
+  "description": "GetLuck Backend Server",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  }
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "getluck",
+    "nodejs",
+    "backend"
+  ],
+  "author": "Aniyan",
+  "license": "ISC"
 }

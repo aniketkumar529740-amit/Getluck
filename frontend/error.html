@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Status • Error</title>
+    <link rel="icon" type="image/x-icon" href="https://instagram.com">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        :root {
+            --bg-main: #000000;
+            --card-bg: #121212;
+            --border-color: #262626;
+            --text-title: #f5f5f5;
+            --text-body: #a8a8a8;
+            --accent-red: #ff3b30;
+            --btn-blue: #0095f6;
+            --btn-hover: #1877f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-title);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            max-width: 420px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-icon {
+            font-size: 48px;
+            color: var(--accent-red);
+            margin-bottom: 20px;
+        }
+
+        .error-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-title);
+        }
+
+        .error-message {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-body);
+            margin-bottom: 30px;
+        }
+
+        .retry-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--btn-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .retry-btn:hover {
+            background-color: var(--btn-hover);
+        }
+
+        .footer-brand {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #555;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <!-- Visual Warning Indicator -->
+        <div class="error-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        
+        <!-- Status Header -->
+        <h1 class="error-title">Connection Status</h1>
+        
+        <!-- Your Required Admin Message Display -->
+        <p class="error-message">
+            Currently server is too busy, please visit again when you get the notification through our admin.
+        </p>
+        
+        <!-- Interactive Fallback Action Routing back to Login -->
+        <a href="index.html" class="retry-btn">Return to Login Screen</a>
+        
+        <div class="footer-brand">
+            SYSTEM DIAGNOSTIC CODE: 503_BUSY
+        </div>
+    </div>
+
+</body>
+</html>
